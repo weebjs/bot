@@ -1,0 +1,11 @@
+{
+    "token": "gapi_hB9d5OEZgX1vnOH1KlDNebkFmEncN8zLZXbsXmQWLk1U28SOxGvE0v11whv7z2j3rTRL22hE0+PeWEWP7wZXxQ==",
+    "prefix": "k!",
+    "color": {
+        "positive": "WHITE",
+        "negative": "RED",
+        "neutral": "0xFDDB5B",
+        "warn": "YELLOW"
+    },
+    "ownerId": "12345"
+}
