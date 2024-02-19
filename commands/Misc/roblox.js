@@ -39,7 +39,7 @@ module.exports = {
       console.error(error); 
       const embed = new Embed()
         .setTitle("Error ❌")
-        .setDescription("Failed to get Roblox information, or the roblox user **doesn't** exist. \n\n *Please try again later, or Report it to our [Support Server](guilded.gg/zapguilded).*")
+        .setDescription("Failed to get Roblox information, or the roblox user **doesn't** exist. \n\n *Please try again later, or report it to our [Support Server](guilded.gg/zapguilded).*")
         .setColor("#FF3131");
 
       message.reply({ embeds: [embed], isSilent: true });
