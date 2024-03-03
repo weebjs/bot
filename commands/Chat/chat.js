@@ -1,4 +1,3 @@
-
 const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("@google/generative-ai");
 const { Embed } = require("guilded.js");
 
@@ -40,8 +39,7 @@ module.exports = {
     const chat = model.startChat({
       generationConfig,
       safetySettings,
-      history: [
-      ],
+      history: [],
     });
 
     const prompt = args.join(" "); // Extract prompt from args
@@ -72,15 +70,16 @@ module.exports = {
           "That response is too long. Please try again with a different prompt."
         );
 
-      message.reply({ embeds: [embed], isSilent: true });
+      message.reply({ embeds: [embed], isPrivate: true });
 
       return;
     }
-
+ 
     const embed = new Embed()
-      .setDescription(`\`\`\`${text}\`\`\``);
+    .setColor("36363D")
+      .setDescription(`${text}`);
 
-    message.reply({ embeds: [embed], isSilent: true });
+    message.reply({ embeds: [embed], isPrivate: true });
   },
 };
 
