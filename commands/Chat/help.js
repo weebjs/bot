@@ -34,7 +34,8 @@ module.exports = {
         const embed = new Embed()
           .setTitle("Available Commands")
           .setColor("#36363D")
-          .setDescription("**chat** - Chat with Gemini \n**help** - Get every availible command.")
+          .addField("chat", "start a conversation with Gemini.", true)
+          .addfield("help", "view all commands useable for Gemini.", true)
           .setThumbnail("https://cdn.gilcdn.com/ContentMediaGenericFiles/75c19999563391a1c9a1934810b952e5-Full.webp?w=512&h=512");
 
         // Send the embed as a reply
