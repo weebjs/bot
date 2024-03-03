@@ -4,7 +4,7 @@ const noblox = require("noblox.js");
 
 module.exports = {
   description: "Get Roblox user information",
-  aliases: ["userinfo", "robloxinfo"],
+  aliases: ["robloxinfo"],
   usage: "<Roblox username>",
   run: async (client, message, args) => {
     const username = args[0];
@@ -42,7 +42,7 @@ module.exports = {
         .setDescription("Failed to get Roblox information, or the roblox user **doesn't** exist. \n\n *Please try again later, or report it to our [Support Server](guilded.gg/zapguilded).*")
         .setColor("#FF3131");
 
-      message.reply({ embeds: [embed], isSilent: true });
+      message.reply({ embeds: [embed], isSilent: true })
     }
   },
 };
