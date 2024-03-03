@@ -21,7 +21,7 @@ module.exports = {
         },
         body: JSON.stringify({
           content: status,
-          emoteId: 155623,
+          emoteId: 90002579,
         })
       });
 
