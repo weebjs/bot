@@ -6,6 +6,7 @@ module.exports = {
   usage: "gemini help or gemini help [command name]",
   run: async (client, message, args) => {
     try {
+      await client.fetchServers();
       const commandName = args[0]; // Get the command name from the user's input
 
       // If a command name is provided, display information about that command
@@ -34,9 +35,7 @@ module.exports = {
         const embed = new Embed()
           .setTitle("Available Commands")
           .setColor("#36363D")
-          .addField("chat", "start a conversation with Gemini.", true)
-          .addfield("help", "view all commands useable for Gemini.", true)
-          .setThumbnail("https://cdn.gilcdn.com/ContentMediaGenericFiles/75c19999563391a1c9a1934810b952e5-Full.webp?w=512&h=512");
+          .setDescription("**chat** - start a conversation with the bot. \n**help** - view every command useable for the bot.")
 
         // Send the embed as a reply
         const helpMessage = await message.reply({ embeds: [embed], isSilent: true });
