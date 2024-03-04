@@ -77,7 +77,7 @@ module.exports = {
 
       const embed = new Embed()
         .setColor("36363D")
-        .setDescription(`${text}`);
+        .setDescription(`\`\`\`${text}\`\`\``);
 
       message.reply({ embeds: [embed] });
     }
