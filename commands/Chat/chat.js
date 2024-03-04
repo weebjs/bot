@@ -57,29 +57,30 @@ module.exports = {
       return;
     }
 
-    const result = await chat.sendMessage(prompt);
+    const result = await chat.generateContentStream([prompt]);
     const response = await result.response;
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
 
-    const text = response.text();
+      if (text.length > 2045) {
+        const embed = new Embed()
+          .setTitle("Oh no!")
+          .setColor("#FF3131")
+          .setDescription(
+            "That response is too long. Please try again with a different prompt."
+          );
 
-    if (text.length > 2045) {
+        message.reply({ embeds: [embed], isPrivate: true });
+
+        return;
+      }
+
       const embed = new Embed()
-        .setTitle("Oh no!")
-        .setColor("#FF3131")
-        .setDescription(
-          "That response is too long. Please try again with a different prompt."
-        );
+        .setColor("36363D")
+        .setDescription(`${text}`);
 
-      message.reply({ embeds: [embed], isPrivate: true });
-
-      return;
+      message.reply({ embeds: [embed] });
     }
- 
-    const embed = new Embed()
-    .setColor("36363D")
-      .setDescription(`${text}`);
-
-    message.reply({ embeds: [embed] });
   },
 };
 
