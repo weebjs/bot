@@ -7,60 +7,61 @@ const genAI = new GoogleGenerativeAI("AIzaSyDJSCiol8CvtVJebCbd3seCpAxXU-5D6PI");
 module.exports = {
   description: "chat with zap!",
   run: async (client, message, args) => {
-    // For text-only input, use the gemini-pro model
-    const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
+    try {
+      // For text-only input, use the gemini-pro model
+      const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
-    const generationConfig = {
-      temperature: 0,
-      topK: 1,
-      topP: 1,
-      maxOutputTokens: 2048,
-    };
+      const generationConfig = {
+        temperature: 0,
+        topK: 1,
+        topP: 1,
+        maxOutputTokens: 2048,
+      };
 
-    const safetySettings = [
-      {
-        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-      },
-      {
-        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-      },
-      {
-        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-      },
-      {
-        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-      },
-    ];
+      const safetySettings = [
+        {
+          category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+        },
+      ];
 
-    const chat = model.startChat({
-      generationConfig,
-      safetySettings,
-      history: [],
-    });
+      const chat = model.startChat({
+        generationConfig,
+        safetySettings,
+        history: [],
+      });
 
-    const prompt = args.join(" "); // Extract prompt from args
+      const prompt = args.join(" "); // Extract prompt from args
 
-    if (prompt.length > 1000) {
-      const embed = new Embed()
-        .setTitle("Oh no!")
-        .setColor("#FF3131")
-        .setDescription(
-          "Your prompt is too long. Please provide a prompt with less than **1000** characters."
-        );
+      if (prompt.length > 1000) {
+        const embed = new Embed()
+          .setTitle("Oh no!")
+          .setColor("#FF3131")
+          .setDescription(
+            "Your prompt is too long. Please provide a prompt with less than **1000** characters."
+          );
 
-      message.reply({ embeds: [embed], isPrivate: true });
+        message.reply({ embeds: [embed], isPrivate: true });
 
-      return;
-    }
+        return;
+      }
 
-    const result = await model.generateContentStream([prompt]);
-    const response = await result.response;
-    for await (const chunk of result.stream) {
-      const text = chunk.text();
+      const result = await chat.sendMessage(prompt);
+      const response = await result.response;
+
+      const text = response.text();
 
       if (text.length > 2045) {
         const embed = new Embed()
@@ -79,9 +80,9 @@ module.exports = {
         .setColor("36363D")
         .setDescription(`\`\`\`${text}\`\`\``);
 
-      message.reply({ embeds: [embed] });
+      message.reply({ embeds: [embed], isSilent: true });
+    } catch (err) {
+      console.error(err);
     }
   },
 };
-
-// Pass the arguments to the run function
