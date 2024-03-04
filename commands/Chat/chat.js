@@ -79,7 +79,7 @@ module.exports = {
     .setColor("36363D")
       .setDescription(`${text}`);
 
-    message.reply({ embeds: [embed], isPrivate: true });
+    message.reply({ embeds: [embed], isSilent: true });
   },
 };
 
