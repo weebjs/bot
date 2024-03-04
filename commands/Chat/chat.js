@@ -57,7 +57,7 @@ module.exports = {
       return;
     }
 
-    const result = await chat.generateContentStream([prompt]);
+    const result = await model.generateContentStream([prompt]);
     const response = await result.response;
     for await (const chunk of result.stream) {
       const text = chunk.text();
