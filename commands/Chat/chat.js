@@ -80,7 +80,7 @@ module.exports = {
         .setColor("36363D")
         .setDescription(`\`\`\`${text}\`\`\``);
 
-      message.reply({ embeds: [embed], isSilent: true });
+      message.reply({ embeds: [embed] });
     } catch (err) {
       console.error(err);
     }
