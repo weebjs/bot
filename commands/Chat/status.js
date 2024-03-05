@@ -10,7 +10,7 @@ module.exports = {
 
      
 
-    const authToken = "gapi_syDhhYVRqYS0iou3ROGkPR7kj1NIhe5pK7PmFc9cfljk/G7D/XpBREBOLDn042rkCBC0xPOU6Q8HBQ2g8P2Tgw=="; // Replace with your authorization token
+    const authToken = "gapi_krgKTcsyAI1502/GO7+EPYVSHZQ4MlJr4yfhd5srXV+SGLcD42oH7l2tEOCQ1lSdY1F4WT5/p5ILhRnyo1L0sQ=="; // Replace with your authorization token
 
     try {
       const response = await fetch(`https://www.guilded.gg/api/v1/users/@me/status`, {
