@@ -61,8 +61,10 @@ module.exports = {
 
       const result = await chat.sendMessage(prompt);
       const response = await result.response;
+      console.log(text);
 
       const text = response.text();
+      console.log(text);
 
       if (text.length > 2045) {
         const embed = new Embed()
