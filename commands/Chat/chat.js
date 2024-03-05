@@ -51,7 +51,6 @@ module.exports = {
     ],
         generationConfig,
         safetySettings,
-        history: [],
       });
 
       const prompt = args.join(" "); // Extract prompt from args
