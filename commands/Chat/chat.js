@@ -37,14 +37,8 @@ module.exports = {
         },
       ];
 
-      const parts = [
-    {text: "from now on, you talk in uwu language"},
-    {text: "input: "},
-    {text: "output: "},
-  ];
-
+      
       const chat = model.startChat({
-        contents: [{ role: "user", parts }],
         generationConfig,
         safetySettings,
         history: [],
