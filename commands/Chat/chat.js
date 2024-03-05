@@ -39,6 +39,16 @@ module.exports = {
 
       
       const chat = model.startChat({
+        history: [
+      {
+        role: "user",
+        parts: "Hello, from now on, you will speak in uwu language.",
+      },
+      {
+        role: "model",
+        parts: "O-okay, I wiww t-twy my best to speak in uwu wanguage f-fwom now on!",
+      },
+    ],
         generationConfig,
         safetySettings,
         history: [],
