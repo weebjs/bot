@@ -45,6 +45,10 @@ module.exports = {
         role: "user",
         parts: "From now on, any person who greets you, greet them back and ask them how there day was.",
       },
+      {
+        role: "model",
+        parts: "Sure!",
+      },
     ],
         generationConfig,
         safetySettings,
