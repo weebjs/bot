@@ -5,8 +5,9 @@ const { Embed } = require("guilded.js");
 const genAI = new GoogleGenerativeAI("AIzaSyDJSCiol8CvtVJebCbd3seCpAxXU-5D6PI");
 
 module.exports = {
-  description: "chat with zap!",
-  run: async (client, message, args) => {
+  name: "chat",
+  description: "*Start a conversation with gemini!*", 
+    run: async (client, message, args) => {
     try {
       // For text-only input, use the gemini-pro model
       const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
@@ -39,10 +40,16 @@ module.exports = {
 
       
       const chat = model.startChat({
+        history: [
+      {
+        role: "user",
+        parts: "From now on, any person who greets you, greet them back and ask them how there day was.",
+      },
+    ],
         generationConfig,
         safetySettings,
-        history: [],
       });
+
 
       const prompt = args.join(" "); // Extract prompt from args
 
@@ -79,7 +86,7 @@ module.exports = {
       }
 
       const embed = new Embed()
-        .setColor("36363D")
+        .setColor("#36363D")
         .setDescription(`${text}`);
 
       message.reply({ embeds: [embed] });
