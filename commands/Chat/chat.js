@@ -6,8 +6,8 @@ const genAI = new GoogleGenerativeAI("AIzaSyDJSCiol8CvtVJebCbd3seCpAxXU-5D6PI");
 
 module.exports = {
   name: "chat",
-  description: "*Start a conversation with gemini!*", 
-    run: async (client, message, args) => {
+  description: "*Start a conversation with gemini!*",
+  run: async (client, message, args) => {
     try {
       // For text-only input, use the gemini-pro model
       const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
@@ -38,22 +38,11 @@ module.exports = {
         },
       ];
 
-      
       const chat = model.startChat({
-        history: [
-      {
-        role: "user",
-        parts: "From now on, any person who greets you, greet them back and Say that your gemini a multimodal AI language model developed by Google, and also say how may you assist them.",
-      },
-      {
-        role: "model",
-        parts: "Sure!",
-      },
-    ],
         generationConfig,
         safetySettings,
+        history: [],
       });
-
 
       const prompt = args.join(" "); // Extract prompt from args
 
@@ -89,11 +78,7 @@ module.exports = {
         return;
       }
 
-      const embed = new Embed()
-        .setColor("#36363D")
-        .setDescription(`${text}`);
-
-      message.reply({ embeds: [embed] });
+      message.reply(`${text}`);
     } catch (err) {
       console.error(err);
     }
