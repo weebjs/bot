@@ -1,4 +1,4 @@
-const { Embed } = require("guilded.js");
+const { Embed, Role } = require("guilded.js");
 
 module.exports = {
   name: "help",
