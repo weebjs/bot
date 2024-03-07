@@ -6,7 +6,6 @@ module.exports = {
   usage: "\`g!help [command name]\`",
   run: async (client, message, args) => {
     try {
-      await client.fetchServers();
       const commandName = args[0]; // Get the command name from the user's input
 
       // If a command name is provided, display information about that command
