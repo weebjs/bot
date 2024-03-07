@@ -43,7 +43,7 @@ module.exports = {
         history: [
       {
         role: "user",
-        parts: "From now on, any person who greets you, greet them back and ask them how there day was.",
+        parts: "From now on, any person who greets you, greet them back and Say that your gemini a multimodal AI language model developed by Google, and also say how may you assist them.",
       },
       {
         role: "model",
