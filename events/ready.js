@@ -1,5 +1,7 @@
+const p = require("primebit.js")
+
 module.exports = {
   run: (client) => {
-    console.log(`[ ${client.user.name} ] : Connected to Guilded`)
+    p.log(`✅ ${client.user.name} is Connected to Guilded!`)
   }
 }

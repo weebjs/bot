@@ -3,6 +3,7 @@ const { Collection } = require("discord.js");
 const { token, prefix, color, ownerId, mongoURI } = require("./settings.json");
 const functions = require("./handlers/functions");
 const client = new Client({token : token});
+const p = require("primebit.js");
 
 const express = require('express');
 const app = express();
@@ -11,7 +12,7 @@ app.get('/', (req, res) => {
   res.send(`Ready`)
 })
 app.listen(port, () => {
-  console.log(`Doge's API is listening to port : ${port}`)
+  p.log(`✅ Running on localhost:${port}!`)
 })
 
 client.commands = new Collection();
