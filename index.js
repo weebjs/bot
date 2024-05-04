@@ -12,7 +12,6 @@ app.get('/', (req, res) => {
   res.send(`Ready`)
 })
 app.listen(port, () => {
-  p.log(`✅ Running on localhost:${port}!`)
 })
 
 client.commands = new Collection();
