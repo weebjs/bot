@@ -14,6 +14,14 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
 })
 
+module.exports = {
+  run: async (client) => {
+    await client.fetchServers();
+    p.success(`Logged in as ${client.user.name}`);
+    p.log(`Fetched ${client.servers.cache.size} servers!`);
+  },
+};
+
 client.commands = new Collection();
 client.aliases = new Collection();
 client.settings = { prefix, color, ownerId };
