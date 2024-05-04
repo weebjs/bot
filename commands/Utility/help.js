@@ -3,7 +3,7 @@ const { Embed, Role } = require("guilded.js");
 module.exports = {
   name: "help",
   description: "*View every command for the bot.*",
-  usage: "\`g!help [command name]\`",
+  usage: "g!help [command name]",
   run: async (client, message, args) => {
     try {
       const commandName = args[0]; // Get the command name from the user's input
@@ -16,14 +16,16 @@ module.exports = {
           const embed = new Embed()
             .setTitle("Uh Oh ❗")
             .setDescription("This command doesn't exist.\n\nPlease use the `help` command to view every available command to use.")
-            .setColor("#FF3131");
+            .setColor("RED");
 
           const errorembed = await message.reply({ embeds: [embed], isSilent: true });
         } else {
           // Create an embed with the command name and description
           const embed = new Embed()
-            .setTitle(command.name)
-            .setDescription(`*${command.description}* \n\n**Usage:** \`${command.usage || 'None'}\` \n\n**Aliases:** \`${command.aliases || 'None'}\``)
+            .setTitle(`Information for: \`${command.name}\``)
+            .setDescription(`*${command.description}*`)
+            .addField(`Usage`, `\`${command.usage || 'None'}\``, true)
+            .addField(`Aliases`, `\`${command.aliases || 'None'}\``)
             .setColor("#36363D");
 
           // Send the embed as a reply

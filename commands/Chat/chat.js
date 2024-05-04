@@ -51,7 +51,7 @@ module.exports = {
       if (prompt.length > 1000) {
         const embed = new Embed()
           .setTitle("Oh no!")
-          .setColor("#FF3131")
+          .setColor("RED")
           .setDescription(
             "Your prompt is too long. Please provide a prompt with less than **1000** characters."
           );
@@ -70,7 +70,7 @@ module.exports = {
       if (text.length > 2045) {
         const embed = new Embed()
           .setTitle("Oh no!")
-          .setColor("#FF3131")
+          .setColor("RED")
           .setDescription(
             "That response is too long. Please try again with a different prompt."
           );
