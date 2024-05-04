@@ -1,4 +1,4 @@
-const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("@google/generative-ai");
+const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("gemini-pro-vision");
 const { Embed } = require("guilded.js");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
