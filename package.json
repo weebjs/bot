@@ -19,7 +19,7 @@
     "express": "^4.18.2",
     "figlet": "^1.7.0",
     "google-translate-api": "^2.3.0",
-    "guilded.js": "^0.20.8",
+    "guilded.js": "0.24.2",
     "jikan4.js": "^1.5.11",
     "mathjs": "^11.8.0",
     "moment": "^2.29.4",
