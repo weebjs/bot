@@ -8,16 +8,6 @@ module.exports = {
   name: "chat",
   description: "Start a conversation with Gemini!",
   run: async (client, message, args) => {
-    const botClient = new Client({
-      token: "gapi_nGSVwuolTjBj9VxjK1aCU3UD1tlnuUr1sDEiiRF1gyjdeSdQqj0nXzAWoNvAKc5n1DMnx1+4bYX+nuaJtndJOA==",
-      rest: {
-        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
-      },
-      ws: {
-        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
-      }
-    });
-
     try {
       // For text-only input, use the gemini-pro model
       const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
