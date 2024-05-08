@@ -8,7 +8,7 @@ module.exports = {
   name: "chat",
   description: "*Start a conversation with gemini!*", 
     run: async (client, message, args) => {
-      const client = new Client({
+      const botclient = new Client({
     token: "gapi_nGSVwuolTjBj9VxjK1aCU3UD1tlnuUr1sDEiiRF1gyjdeSdQqj0nXzAWoNvAKc5n1DMnx1+4bYX+nuaJtndJOA==",
     rest: {
         headers: { "x-guilded-bot-api-use-official-markdown": "true" }
