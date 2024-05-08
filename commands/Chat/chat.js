@@ -94,7 +94,7 @@ module.exports = {
         .setColor("#36363D")
         .setDescription(`\`\`\`${text}\`\`\``);
 
-      message.reply({ embeds: [embed] });
+      message.reply({ content: text })
     } catch (err) {
       console.error(err);
     }
