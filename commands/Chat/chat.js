@@ -56,7 +56,7 @@ module.exports = {
             "Your prompt is too long. Please provide a prompt with less than **1000** characters."
           );
 
-        message.reply({ embeds: [embed], isPrivate: true });
+        message.reply({ embeds: [embed] });
 
         return;
       }
@@ -75,7 +75,7 @@ module.exports = {
             "That response is too long. Please try again with a different prompt."
           );
 
-        message.reply({ embeds: [embed], isPrivate: true });
+        message.reply({ embeds: [embed] });
 
         return;
       }
