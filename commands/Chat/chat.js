@@ -1,5 +1,5 @@
 const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("@google/generative-ai");
-const { Embed } = require("guilded.js");
+const { Embed, Client } = require("guilded.js");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI("AIzaSyDJSCiol8CvtVJebCbd3seCpAxXU-5D6PI");
@@ -8,6 +8,16 @@ module.exports = {
   name: "chat",
   description: "*Start a conversation with gemini!*", 
     run: async (client, message, args) => {
+      const client = new Client({
+    token: "gapi_nGSVwuolTjBj9VxjK1aCU3UD1tlnuUr1sDEiiRF1gyjdeSdQqj0nXzAWoNvAKc5n1DMnx1+4bYX+nuaJtndJOA==",
+    rest: {
+        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
+    },
+    ws: {
+        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
+    }
+});
+
     try {
       // For text-only input, use the gemini-pro model
       const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
