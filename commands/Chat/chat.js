@@ -1,5 +1,5 @@
 const { Embed, Client } = require("guilded.js");
-const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("google-generative-ai");
+const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("@google/generative-ai");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI("AIzaSyDJSCiol8CvtVJebCbd3seCpAxXU-5D6PI");
