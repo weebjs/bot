@@ -10,15 +10,19 @@ app.get('/', (req, res) => {
 });
 app.listen(port, () => {});
 
-    await client.fetchServers();
-    console.log(`Logged in as ${client.user.name}`);
-    console.log(`Fetched ${client.servers.cache.size} servers!`);
+async function start() {
+  await client.fetchServers();
+  console.log(`Logged in as ${client.user.name}`);
+  console.log(`Fetched ${client.servers.cache.size} servers!`);
 
-client.commands = new Collection();
-client.aliases = new Collection();
-client.settings = { prefix, color, ownerId };
-client.functions = functions;
+  client.commands = new Collection();
+  client.aliases = new Collection();
+  client.settings = { prefix, color, ownerId };
+  client.functions = functions;
 
-for (let handler of ["command", "event"]) require(`./handlers/${handler}`)(client);
+  for (let handler of ["command", "event"]) require(`./handlers/${handler}`)(client);
 
-client.login();
+  client.login();
+}
+
+start();
