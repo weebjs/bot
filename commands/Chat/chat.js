@@ -1,22 +1,22 @@
-const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("@google/generative-ai");
 const { Embed, Client } = require("guilded.js");
+const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require("google-generative-ai");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI("AIzaSyDJSCiol8CvtVJebCbd3seCpAxXU-5D6PI");
 
 module.exports = {
   name: "chat",
-  description: "*Start a conversation with gemini!*", 
-    run: async (client, message, args) => {
-      const botclient = new Client({
-    token: "gapi_nGSVwuolTjBj9VxjK1aCU3UD1tlnuUr1sDEiiRF1gyjdeSdQqj0nXzAWoNvAKc5n1DMnx1+4bYX+nuaJtndJOA==",
-    rest: {
+  description: "Start a conversation with Gemini!",
+  run: async (client, message, args) => {
+    const botClient = new Client({
+      token: "gapi_nGSVwuolTjBj9VxjK1aCU3UD1tlnuUr1sDEiiRF1gyjdeSdQqj0nXzAWoNvAKc5n1DMnx1+4bYX+nuaJtndJOA==",
+      rest: {
         headers: { "x-guilded-bot-api-use-official-markdown": "true" }
-    },
-    ws: {
+      },
+      ws: {
         headers: { "x-guilded-bot-api-use-official-markdown": "true" }
-    }
-});
+      }
+    });
 
     try {
       // For text-only input, use the gemini-pro model
@@ -48,13 +48,11 @@ module.exports = {
         },
       ];
 
-      
-      const chat = model.startChat({  
+      const chat = model.startChat({
         generationConfig,
         safetySettings,
         history: [],
       });
-
 
       const prompt = args.join(" "); // Extract prompt from args
 
@@ -94,7 +92,7 @@ module.exports = {
         .setColor("#36363D")
         .setDescription(`\`\`\`${text}\`\`\``);
 
-      message.reply({ content: text })
+      message.reply({ content: text });
     } catch (err) {
       console.error(err);
     }
