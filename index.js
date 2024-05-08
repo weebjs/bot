@@ -2,7 +2,16 @@ const { Client } = require("guilded.js");
 const { Collection } = require("discord.js");
 const { token, prefix, color, ownerId, mongoURI } = require("./settings.json");
 const functions = require("./handlers/functions");
-const client = new Client({token : token});
+const client = new Client({
+    token: token,
+    rest: {
+        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
+    },
+    ws: {
+        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
+    }
+});
+
 
 const express = require('express');
 const app = express();
