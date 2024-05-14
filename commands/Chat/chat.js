@@ -78,11 +78,7 @@ module.exports = {
         return;
       }
 
-      const embed = new Embed()
-        .setColor("#36363D")
-        .setDescription(`\`\`\`${text}\`\`\``);
-
-      message.reply({ content: text });
+    message.reply(text);
     } catch (err) {
       console.error(err);
     }
