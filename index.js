@@ -1,16 +1,7 @@
-const { Client } = require("guilded.js");
+const { Client } = require("revolt.js.js");
 const { Collection } = require("discord.js");
-const { token, prefix, color, ownerId, mongoURI } = require("./settings.json");
+const { token, prefix, color, mongoURI } = require("./settings.json");
 const functions = require("./handlers/functions");
-const client = new Client({
-    token: token,
-    rest: {
-        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
-    },
-    ws: {
-        headers: { "x-guilded-bot-api-use-official-markdown": "true" }
-    }
-});
 
 
 const express = require('express');
@@ -30,4 +21,4 @@ client.functions = functions;
 
 for(let handler of  ["command", "event"]) require(`./handlers/${handler}`)(client);
 
-client.login();
+client.loginBot();
