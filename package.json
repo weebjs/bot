@@ -32,6 +32,9 @@
     "qs": "^6.11.1",
     "quick.db": "^9.1.5",
     "quickmongo": "^5.2.0",
+    "revolt.js": "6.0.20",
+    "revolthandler.js": "^2.2.0",
+    "revolttools.js": "^1.2.0",
     "snekfetch": "^4.0.4",
     "weather-js": "^2.0.0",
     "wikipedia": "^2.0.0"
