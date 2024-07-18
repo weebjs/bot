@@ -9,12 +9,13 @@ exports.default = {
       const response = await axios.get('https://api.waifu.im/search?included_tags=waifu');
 
       const image = response.data.images[0].url;
+      const uploader = new Uploader(client)
 
       const embed = new EmbedBuilder()
-      const uploader = new Uploader(client)
-        .setTitle(':frame_with_picture: Click here to view in HD')
+      
+        .setTitle("Here's your waifu image!")
         .setUrl(image) // Set the URL of the embed to the image URL
-        .setMedia(await uploader.upload(image,"image.png"));
+        .setMedia(await uploader.upload(image, "image.jpeg"));
 
       message.reply({ embeds: [embed] });
     } catch (error) {
