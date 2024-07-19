@@ -2,7 +2,7 @@ const { EmbedBuilder } = require("revolttools.js");
 
 exports.default = {
     name: "ban",
-    description: "ban a user.",
+    description: "Ban a user.",
     async code(message, args, client) {
         if (message.member.hasPermission(message.channel.server, "BanMembers") === false) {
             let emb = new EmbedBuilder()
