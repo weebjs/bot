@@ -23,7 +23,8 @@ exports.default = {
       let emb = new EmbedBuilder()
         .setDescription("An error occurred while executing this command.")
         .setTitle("Error!")
-        .setColour("red");
+        .setColour("red")
+        .setIconUrl("https://autumn.revolt.chat/attachments/j9pxBtz-QGDyCaBsWlVq1um8zB6iKDgfw03vCRjJGH/002_stop.PNG")
 
       message.reply({ embeds: [emb] });
     }
